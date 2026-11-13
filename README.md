@@ -21,7 +21,7 @@ but this regex is not. A registration with `HTTPS://…` exits 0 and is saved as
 five schemes through the real CLI registration flow:
 
 - Issue: https://github.com/openai/codex-security/issues/2636 (open, 2026-11-13, full repro + cause)
-- Source: https://github.com/openai/codex-security/blob/main/sdk/typescript/src/cli-mcp.ts#L56
+- Source: https://github.com/openai/codex-security/blob/f26b669b56a4423abd773c81f6c6c9c2ebadc42a/sdk/typescript/src/cli-mcp.ts
 - Upstream workaround in the issue: lowercase the scheme before registration.
 
 The issue is about one writer. The same shape exists in configs those writers leave behind,
