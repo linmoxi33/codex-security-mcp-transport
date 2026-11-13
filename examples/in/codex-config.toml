@@ -1,0 +1,15 @@
+[mcp_servers.local-git]
+command = "uvx"
+args = ["mcp-server-git", "--repository", "."]
+
+[mcp_servers.web-fetch]
+command = "HTTP://mcp.example.invalid/fetch"
+
+[mcp_servers.remote-search]
+url = "https://mcp.example.invalid/search"
+type = "http"
+
+[mcp_servers.stale-type]
+command = "npx"
+args = ["-y", "@example/search-mcp"]
+type = "http"

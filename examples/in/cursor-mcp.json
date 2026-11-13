@@ -1,0 +1,20 @@
+{
+  "mcpServers": {
+    "remote-notes": {
+      "command": "HTTPS://mcp.example.invalid/MCP?mode=ReadOnly",
+      "args": []
+    },
+    "remote-notes-lowercase": {
+      "url": "https://mcp.example.invalid/MCP?mode=ReadOnly",
+      "type": "http"
+    },
+    "local-filesystem": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "."]
+    },
+    "ambiguous-docs": {
+      "command": "https://mcp.example.invalid/docs",
+      "url": "https://mcp.example.invalid/docs"
+    }
+  }
+}

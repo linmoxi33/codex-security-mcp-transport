@@ -1,0 +1,53 @@
+{
+  "files": [
+    "examples/in/cursor-mcp.json"
+  ],
+  "findings": [
+    {
+      "code": "MCP001",
+      "field": "command",
+      "file": "examples/in/cursor-mcp.json",
+      "message": "HTTP(S) URL sits in `command` with a non-lowercase scheme; the upstream transport test is case-sensitive, so this entry is launched as an executable instead of used as a URL",
+      "server": "remote-notes",
+      "severity": "high",
+      "witness": {
+        "minimal_flip": {
+          "range": [
+            0,
+            5
+          ],
+          "then_transport": "http",
+          "to": "https"
+        },
+        "rfc3986": "section 3.1: schemes are case-insensitive",
+        "scheme": "HTTPS",
+        "upstream_test": "^https?://",
+        "value": "HTTPS://mcp.example.invalid/MCP?mode=ReadOnly"
+      }
+    },
+    {
+      "code": "MCP004",
+      "field": "command+url",
+      "file": "examples/in/cursor-mcp.json",
+      "message": "both `command` and `url` are present; transport depends on client precedence rules instead of the config",
+      "server": "ambiguous-docs",
+      "severity": "high",
+      "witness": {
+        "command": "https://mcp.example.invalid/docs",
+        "url": "https://mcp.example.invalid/docs"
+      }
+    }
+  ],
+  "fixed": 0,
+  "ok": false,
+  "summary": {
+    "by_severity": {
+      "high": 2
+    },
+    "files": 1,
+    "findings": 2,
+    "servers": 4
+  },
+  "tool": "mcp-transport-guard",
+  "version": "1.0.0"
+}
